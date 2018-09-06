@@ -1,0 +1,34 @@
+#delete-form {
+	display : inline;
+}
+
+.notes {
+	padding : 10px;
+}
+
+.text-center {
+	text-align : center;
+}
+
+#wrap {
+	background-image: url("https://cdn.pixabay.com/photo/2016/06/25/12/52/laptop-1478822_1280.jpg");
+	background-position: center center;
+	background-repeat:  no-repeat;
+	background-attachment: fixed;
+	background-size:  cover;
+}
+
+.center-content {
+	margin: auto;
+	text-align: center;
+}
+
+.heading {
+	text-decoration: underline;
+	padding-top: 20%;
+}
+
+#stack-note-btn {
+	margin-top: 2%;
+	margin-left: 43%;
+}

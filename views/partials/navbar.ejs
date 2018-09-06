@@ -1,0 +1,38 @@
+</head>
+<body>
+
+<div class="container">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/">Stack Note</a>
+			</div>
+			<ul class="nav">
+				<% if(!currentUser) { %>
+					<li><a class="nav-link" href="/login">Login</a></li>
+					<li><a class="nav-link" href="/register">Sign Up</a></li>
+				<% } else { %>
+					<li>
+						<p class="nav-link">Logged in as <%= currentUser.username %></p>
+					</li>
+					<li><a class="nav-link" href="/logout">Logout</a></li>
+				<% } %>
+			</ul>
+		</div>
+	</nav>	
+</div>
+<br>
+
+<div class="container">
+	<% if (error && error.length > 0) { %>
+		<div class="alert alert-danger" role="alert">
+			<%= error %>
+		</div>
+	<% } %>
+
+	<% if (success && success.length > 0) { %>
+		<div class="alert alert-success" role="success">
+			<%= success %>
+		</div>
+	<% } %>
+</div>

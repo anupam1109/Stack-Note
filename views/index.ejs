@@ -1,0 +1,28 @@
+<% include partials/header.ejs%>
+<% include partials/navbar.ejs%>
+
+<div class="container">
+	<div class="row">
+		<div class="col-12">
+			<% user.notes.forEach(function(note){ %>
+				<div class="thumbnail border rounded notes">
+					<h3 class="text-center"><%= note.title %></h3>
+					<p><%= note.content %></p>
+					<a class="btn btn-sm btn-warning" href="/notes/<%= note._id %>/edit">Edit</a>
+
+					<form id="delete-form" action="/notes/<%= note._id %>?_method=DELETE" method="POST">
+						<button class="btn btn-sm btn-danger">Delete</button>
+					</form>
+				</div>
+				<br>
+			<% }) %>
+		</div>
+		<div class="col-12">
+			<div class="thumbnail notes float-right">
+				<a class="btn btn-sm btn-primary" href="/notes/new">New</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<% include partials/footer.ejs%>

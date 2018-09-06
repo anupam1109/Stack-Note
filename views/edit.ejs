@@ -1,0 +1,29 @@
+<% include partials/header.ejs%>
+<% include partials/navbar.ejs%>
+
+<br>
+<br>
+<div class="container">
+	<div class="row">
+		<div style="width: 30%; margin: 25px auto;">
+			<h2 style="text-align: center;">Edit <%= note.title %></h2>
+			<form action="/notes/<%= note._id %>/edit?_method=PUT" method="POST">
+				<div class="form-group">
+					<input class="form-control" type="text" name="note[title]" value="<%= note.title %>" required>
+				</div>
+
+				<div class="form-group">
+					<!-- <input class="form-control" type="text" name="content" placeholder="Your content"> -->
+					<textarea class="form-control" rows="8" name="note[content]"><%= note.content %></textarea>
+				</div>
+
+				<div class="form-group">
+					<button class="btn btn-lg btn-primary btn-default btn-block" type="submit">Update</button>
+				</div>
+			</form>
+			<a href="/notes">Back</a>
+		</div>
+	</div>
+</div>
+
+<% include partials/footer.ejs%>
