@@ -131,9 +131,10 @@ app.post("/register", function(req, res){
 		if(err){
 			req.flash("error", err.message);
 			console.log(err);
+			return res.render("register");
 		}
 		else {
-			passport.authenticate("local")(req, res, function(err, user){
+				passport.authenticate("local")(req, res, function(){
 				req.flash("success", "Welcome to Notes " + user.username);
 				res.redirect("/notes");
 			});
