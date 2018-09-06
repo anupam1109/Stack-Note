@@ -11,7 +11,7 @@ var express			 		= require('express'),
 	User					= require('./models/user');
 
 // mongoose.connect("mongodb://localhost/notes", { useNewUrlParser: true });
-mongoose.connect("mongodb://<anupam>:<anupam11>@ds245512.mlab.com:45512/stacknote", { useNewUrlParser: true });
+mongoose.connect("mongodb://anupam:anupam11@ds245512.mlab.com:45512/stacknote", { useNewUrlParser: true });
 
 var app = express();
 app.use(express.static(__dirname + '/public'));
