@@ -1,3 +1,10 @@
+@media only screen and (min-width: 992px) {
+	.reduce_width {
+		width: 30%;
+		margin: 25px auto;
+	}
+}
+
 #delete-form {
 	display : inline;
 }
