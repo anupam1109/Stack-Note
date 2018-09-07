@@ -11,11 +11,11 @@
 }
 
 #wrap {
-	background-image: url("../landing_image.jpg");
-	background-position: center center;
-	background-repeat:  no-repeat;
-	background-attachment: fixed;
-	background-size:  cover;
+	background-image : url("../landing_image.jpg");
+	background-position : center;
+	background-repeat : no-repeat;
+	background-attachment : fixed;
+	background-size : cover;
 }
 
 .center_container {
@@ -24,7 +24,7 @@
     justify-content: center;
 	align-items: center;
 	text-align: center;
-	min-height: 85vh;
+	min-height: 80vh;
 }
 
 .heading {
