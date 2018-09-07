@@ -5,6 +5,12 @@
 	}
 }
 
+@media only screen and (min-width: 600px) {
+	.reduce_width {
+		margin: 25px auto;
+	}
+}
+
 #delete-form {
 	display : inline;
 }
