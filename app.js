@@ -10,8 +10,7 @@ var express			 		= require('express'),
 	flash					= require('connect-flash'),
 	User					= require('./models/user');
 
-// mongoose.connect("mongodb://localhost/notes", { useNewUrlParser: true });
-mongoose.connect("mongodb://anupam:anupam11@ds245512.mlab.com:45512/stacknote", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/notes", { useNewUrlParser: true });
 
 var app = express();
 app.use(express.static(__dirname + '/public'));
@@ -106,6 +105,7 @@ app.put("/notes/:id/edit", isLoggedIn, function(req, res){
 app.delete("/notes/:id", isLoggedIn, function(req, res){
 	Note.findByIdAndRemove(req.params.id, function(err){
 		if(err) {
+			req.flash("error", "Something went wrong! Please try again.");
 			console.log(err);
 		} else {
 			req.flash("success", "Note deleted successfully!");
@@ -130,8 +130,8 @@ app.post("/register", function(req, res){
 	User.register(user, req.body.password, function(err, user){
 		if(err){
 			req.flash("error", err.message);
-			console.log(err);
-			return res.render("register");
+			console.log(err.message);
+			res.redirect("/register");
 		}
 		else {
 				passport.authenticate("local")(req, res, function(){
@@ -151,14 +151,15 @@ app.get("/login", function(req, res){
 app.post("/login", passport.authenticate("local",
 	{
 		successRedirect : "/notes",
-		failureRedirect : "/login"
+		failureRedirect : "/login",
+		failureFlash: true 
 	}), function(req, res){
 });
 
 // Logout
 app.get("/logout", function(req, res){
 	req.logout();
-	req.flash("success", "Successfully Logged out!");
+	req.flash("success", "Successfully logged out!");
 	res.redirect("/");
 });
 
@@ -168,7 +169,7 @@ function isLoggedIn(req, res, next){
 	if(req.isAuthenticated()){
 		return next();
 	}
-	req.flash("error", "Please Login To Proceed!");
+	req.flash("error", "Please login to proceed!");
 	res.redirect("/login");
 }
 
